@@ -23,43 +23,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toast.makeText(this, "onCreate", Toast.LENGTH_LONG).show();
+
         findViews();
-//        bHelp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                new AlertDialog.Builder(MainActivity.this)
-//                        .setTitle("BMI說明")
-//                        .setMessage("體重(kg)/身高的平方(m)")
-//                        .setPositiveButton("OK", null)
-//                        .show();
-//            }
-//        });
+
+        BMIControl();
+
+    }
+
+    private void BMIControl() {
+
         bHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("");
-                builder.setMessage("");
-                builder.setPositiveButton("OK",null);
-                builder.show();
+                showHelp();
             }
         });
 
         bCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                bmi();
                 calBIM();
             }
         });
+    }
 
+    private void showHelp() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("BMI說明");
+        builder.setMessage("體重(kg)/身高的平方(m)");
+        builder.setPositiveButton("OK",null);
+        builder.show();
     }
 
     private void calBIM() {
-        String w = edWeight.getText().toString();
-        String h = edHeight.getText().toString();
-        float weight = Float.parseFloat(w);
-        float height = Float.parseFloat(h);
+//        String w = edWeight.getText().toString();
+//        String h = edHeight.getText().toString();
+//        float weight = Float.parseFloat(w);
+//        float height = Float.parseFloat(h);
+        float weight = Float.parseFloat(edWeight.getText().toString());
+        float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight/(height*height);
         Log.d("BMI", String.valueOf(bmi));
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
