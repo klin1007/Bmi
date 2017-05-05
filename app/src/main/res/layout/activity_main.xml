@@ -35,11 +35,10 @@
         android:id="@+id/ed_height" />
 
     <Button
+        android:id="@+id/b_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/calculate_bmi"
-        android:id="@+id/button"
-        android:onClick="bmi" />
+        android:text="@string/calculate_bmi" />
 
     <Button
         android:layout_width="wrap_content"
