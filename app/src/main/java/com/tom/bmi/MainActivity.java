@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText edWeight;
     private EditText edHeight;
+    private EditText edName;
     private Button bHelp;
     private Button bCalculate;
 
@@ -66,6 +67,10 @@ public class MainActivity extends AppCompatActivity {
         float bmi = weight/(height*height);
         bdBMI.putFloat(getString(R.string.bmi_extra),bmi);
         Log.d("BMI", String.valueOf(bmi));
+
+        String name = edName.getText().toString();
+        bdBMI.putString(getString(R.string.name),name);
+
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
 //        intent.putExtra(getString(R.string.bmi_extra), bmi);
         intent.putExtra("BMIBundle",bdBMI);
@@ -94,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         //取得畫面元件
         edWeight = (EditText) findViewById(R.id.ed_weight);
         edHeight = (EditText) findViewById(R.id.ed_height);
+        edName = (EditText) findViewById(R.id.ed_name);
         bHelp = (Button) findViewById(R.id.b_help);
         bCalculate = (Button) findViewById(R.id.b_calculate);
     }

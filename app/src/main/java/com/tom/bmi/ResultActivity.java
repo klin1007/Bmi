@@ -8,6 +8,7 @@ public class ResultActivity extends AppCompatActivity {
 
     private TextView tvresult;
     private Float flbmi;
+    private String strname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +17,9 @@ public class ResultActivity extends AppCompatActivity {
         Bundle getBundle = getIntent().getBundleExtra("BMIBundle");
 //        float flbmi = getBundle.getFloat(getString(R.string.bmi_extra),0);
         flbmi = getBundle.getFloat(getString(R.string.bmi_extra),0);
+        strname = getBundle.getString(getString(R.string.name));
         tvresult = (TextView) findViewById(R.id.result);
-        tvresult.setText("您的BMI值為:" + flbmi);
+        tvresult.setText(strname + "的BMI值為:" + flbmi);
 //        Intent intent = getIntent();
 //        float bmi = intent.getFloatExtra(getString(R.string.bmi_extra), 0);
 //        TextView result = (TextView) findViewById(R.id.result);
