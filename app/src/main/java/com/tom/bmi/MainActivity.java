@@ -60,12 +60,15 @@ public class MainActivity extends AppCompatActivity {
 //        String h = edHeight.getText().toString();
 //        float weight = Float.parseFloat(w);
 //        float height = Float.parseFloat(h);
+        Bundle bdBMI = new Bundle();
         float weight = Float.parseFloat(edWeight.getText().toString());
         float height = Float.parseFloat(edHeight.getText().toString());
         float bmi = weight/(height*height);
+        bdBMI.putFloat(getString(R.string.bmi_extra),bmi);
         Log.d("BMI", String.valueOf(bmi));
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-        intent.putExtra(getString(R.string.bmi_extra), bmi);
+//        intent.putExtra(getString(R.string.bmi_extra), bmi);
+        intent.putExtra("BMIBundle",bdBMI);
         startActivity(intent);
     }
 
